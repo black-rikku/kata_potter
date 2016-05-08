@@ -15,7 +15,7 @@ public class BasketCalculator {
 		
 		Set<String> differentBooks = new HashSet<String>(books);
 		int[] numRepeatBooks = getNumberOfRepeatedBooks(differentBooks, books);
-		float precio = 0f;
+		float price = 0f;
 		for(int i=books.size(); i>0; i--) {
 			int cont = 0;
 			for(int num : numRepeatBooks) {
@@ -23,9 +23,9 @@ public class BasketCalculator {
 					cont++;
 				}
 			}
-			precio += cont * BOOK_PRICE * (1-aplicateDiscount(cont));
+			price += cont * BOOK_PRICE * (1-aplicateDiscount(cont));
 		}
-		return precio;
+		return price;
 	}
 	
 	public int[] getNumberOfRepeatedBooks(Set<String> differentBooks, List<String> books) {
