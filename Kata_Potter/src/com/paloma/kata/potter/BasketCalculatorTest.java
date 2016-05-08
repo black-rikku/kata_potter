@@ -43,12 +43,21 @@ public class BasketCalculatorTest {
 	}
 
 	@Test
-	public void shouldReturnPriceWithDiscountForABasketWithTwoDiferentBooks() {
+	public void shouldReturnPriceWithDiscountForABasketWithTwoDifferentBooks() {
 		BasketCalculator basketCalculator = new BasketCalculator();
 		List<String> basket = givenBasketWithBooks(FOURTH_BOOK, FIFTH_BOOK);
 		float amount = basketCalculator.calculatePriceWithDiscount(basket);
 
 		assertEquals(2 * 8 * 0.95f, amount, DELTA);
+	}
+	
+	@Test
+	public void shouldReturnPriceWithDiscountForABasketWithThreeBooksTwoDifferent() {
+		BasketCalculator basketCalculator = new BasketCalculator();
+		List<String> basket = givenBasketWithBooks(THIRD_BOOK, THIRD_BOOK, FIFTH_BOOK);
+		float amount = basketCalculator.calculatePriceWithDiscount(basket);
+
+		assertEquals((2 * 8 * 0.95f) + 8, amount, DELTA);
 	}
 
 	private List<String> givenBasketWithBooks(String... books) {
