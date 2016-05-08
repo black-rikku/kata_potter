@@ -9,11 +9,10 @@ public class BasketCalculator {
 	
 	private final int BOOK_PRICE = 8;
 	
-	public int calculatePrice(List<String> books) {
-		return books.size()*BOOK_PRICE;
-	}
-	
 	public float calculatePriceWithDiscount(List<String> books) {
+		
+		if (books==null) {return 0f;}
+		
 		Set<String> differentBooks = new HashSet<String>(books);
 		int[] numRepeatBooks = getNumberOfRepeatedBooks(differentBooks, books);
 		float precio = 0f;

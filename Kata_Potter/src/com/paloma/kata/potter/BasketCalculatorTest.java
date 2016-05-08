@@ -19,27 +19,27 @@ public class BasketCalculatorTest {
 	public void shouldReturnZeroPriceForAnEmptyBasket() {
 		BasketCalculator basketCalculator = new BasketCalculator();
 
-		int amount = basketCalculator.calculatePrice(EMPTY_BASKET);
+		float amount = basketCalculator.calculatePriceWithDiscount(EMPTY_BASKET);
 
-		assertEquals(0, amount);
+		assertEquals(0, amount, DELTA);
 	}
 
 	@Test
 	public void shouldReturnPriceWithoutDiscountForABasketWithOneBook() {
 		BasketCalculator basketCalculator = new BasketCalculator();
 		List<String> basket = givenBasketWithBooks(FIRST_BOOK);
-		int amount = basketCalculator.calculatePrice(basket);
+		float amount = basketCalculator.calculatePriceWithDiscount(basket);
 
-		assertEquals(8, amount);
+		assertEquals(8, amount, DELTA);
 	}
 
 	@Test
 	public void shouldReturnPriceWithoutDiscountForABasketWithTwoEqualBooks() {
 		BasketCalculator basketCalculator = new BasketCalculator();
 		List<String> basket = givenBasketWithBooks(SECOND_BOOK, SECOND_BOOK);
-		int amount = basketCalculator.calculatePrice(basket);
+		float amount = basketCalculator.calculatePriceWithDiscount(basket);
 
-		assertEquals(8 * 2, amount);
+		assertEquals(8 * 2, amount, DELTA);
 	}
 
 	@Test
