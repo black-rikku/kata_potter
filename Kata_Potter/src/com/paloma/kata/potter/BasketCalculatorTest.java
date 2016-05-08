@@ -1,6 +1,5 @@
 package com.paloma.kata.potter;
 
-import java.awt.SecondaryLoop;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
@@ -77,7 +76,7 @@ public class BasketCalculatorTest {
 				THIRD_BOOK, THIRD_BOOK, FOURTH_BOOK, FIFTH_BOOK);
 		float amount = basketCalculator.calculatePriceWithDiscount(basket);
 
-		assertEquals(51.20, amount, DELTA);
+		assertEquals(51.60, amount, 0.00001);
 	}
 
 	private List<String> givenBasketWithBooks(String... books) {
