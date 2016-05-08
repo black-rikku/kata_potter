@@ -8,7 +8,9 @@ import static org.junit.Assert.assertEquals;
 
 public class BasketCalculatorTest {
 	private static final List<String> EMPTY_BASKET = new ArrayList<>();
-	private static final String FIRST_BOOK = "Philosofal stone";
+	private static final String FIRST_BOOK = "The Sorcerer's Stone";
+	private static final String SECOND_BOOK = "The Chamber of Secrets";
+	private static final int DELTA = 0;
 
 	  @Test
 	  public void shouldReturnZeroPriceForAnEmptyBasket() {
@@ -47,6 +49,22 @@ public class BasketCalculatorTest {
 		    List<String> basket = new ArrayList<>();
 		    basket.add(FIRST_BOOK);
 		    basket.add(FIRST_BOOK);
+		    return basket;
+		  }
+	  
+	@Test
+	  public void shouldReturnPriceWithDiscountForABasketWithTwoDiferentBooks() {
+		  BasketCalculator basketCalculator = new BasketCalculator();
+		  List <String> basket = givenBasketWithTwoDiferentBooks();
+		  float amount = basketCalculator.calculatePriceWithDiscount(basket);
+
+		  assertEquals(2*8*0.95f, amount, DELTA);
+	  }
+	  
+	  private List<String> givenBasketWithTwoDiferentBooks() {
+		    List<String> basket = new ArrayList<>();
+		    basket.add(FIRST_BOOK);
+		    basket.add(SECOND_BOOK);
 		    return basket;
 		  }
 }
