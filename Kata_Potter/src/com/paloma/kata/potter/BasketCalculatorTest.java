@@ -33,4 +33,20 @@ public class BasketCalculatorTest {
 		    basket.add(FIRST_BOOK);
 		    return basket;
 		  }
+	  
+	  @Test
+	  public void shouldReturnPriceWithoutDiscountForABasketWithTwoEqualBooks() {
+		  BasketCalculator basketCalculator = new BasketCalculator();
+		  List <String> basket = givenBasketWithTwoEqualBooks();
+		  int amount = basketCalculator.calculatePrice(basket);
+
+		  assertEquals(8*2, amount);
+	  }
+	  
+	  private List<String> givenBasketWithTwoEqualBooks() {
+		    List<String> basket = new ArrayList<>();
+		    basket.add(FIRST_BOOK);
+		    basket.add(FIRST_BOOK);
+		    return basket;
+		  }
 }
